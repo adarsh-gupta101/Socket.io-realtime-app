@@ -11,6 +11,8 @@ app.get("/", (req, res) => {
   res.redirect(`/${uuidV4()}`);
 });
 
+const PORT=process.env.PORT || 3000;
+
 app.get("/:room", (req, res) => {
   res.render("room", { roomId: req.params.room });
 });
@@ -27,4 +29,4 @@ io.on("connection", (socket) => {
      });
 });
 
-server.listen(3000);
+server.listen(PORT);
